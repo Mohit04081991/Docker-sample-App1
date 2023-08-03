@@ -1,0 +1,5 @@
+yamllint package is useful to debug and find this kind of errors, just do yamllint filename and it will list the possible problems it finds. Install via your distro package manager (usually recommended if available) or via the below npm install command (it will install globally)
+
+npm install -g yaml-lint
+
+Thanks to Kyle VG for the npm command
