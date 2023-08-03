@@ -1,0 +1,79 @@
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 995153328861.dkr.ecr.us-east-1.amazonaws.com/my-demo-repo
+
+docker tag praveensansaniwal/demo-work:lex 995153328861.dkr.ecr.us-east-1.amazonaws.com/pslex:v1
+
+docker push 995153328861.dkr.ecr.us-east-1.amazonaws.com/PS:v1
+
+
+eksctl create cluster \
+> --name python-cluster \
+> --version 1.27 \
+> --region us-east-1 \
+> --nodegroup-name worker-nodes \
+> --node-type t2.micro \
+> --nodes 2
+
+
+kubectl exec -it pod-name -- /bin/bash.
+
+
+
+kubectl set image deployment/server-demo back-end=995153328861.dkr.ecr.us-east-1.amazonaws.com/webapp:latest --record
+
+kubectl set image deployment/mysql-deployment mysql=mysql:8.0.32 --record
+
+
+kubectl rollout restart deployment/server-demo
+
+kubectl describe deployment server-demo
+
+
+kubectl rollout undo deployment/server-demo
+
+
+
+t2.micro and t3.micro worker nodes can host up to 4 pods,
+t2.medium and t3.medium worker nodes can have up to 17 pods,
+t2.large and t3.large worker nodes can host up to 35 pods,
+and m5.large worker nodes can host up to 29 pods.
+
+
+EKS: Maximum of 450 nodes per node group and a maximum of 30 node groups. This adds up to a maximum of 13,500 nodes per cluster
+
+
+
+kubectl port-forward prometheus-deployment-57898c796b-bfzsl 8080:9090 -n monitoring
+
+
+ kubectl port-forward prometheus-deployment-57898c796b-bfzsl 8080:9090 -n monitoring
+
+
+
+kubectl get pods --namespace=monitoring
+
+
+http://54.164.99.49:31479/
+
+http://54.164.99.49:30000/
+
+kubectl apply -f https://k8s.io/examples/pods/inject/envars.yaml
+
+
+kubectl exec envar-demo -- printenv
+
+
+eksctl create nodegroup \
+  --cluster demo-cluster \
+  --region us-east-1 \
+  --name demo-nodegroup \
+  --node-ami-family Ubuntu2004 \
+  --node-type t3.medium \
+  --nodes 3 \
+  --nodes-min 2 \
+  --nodes-max 4 \
+  --ssh-access \
+  --ssh-public-key <ec2-ssh-key-name>
+
+kubectl delete --all pods --namespace=foo
+
+

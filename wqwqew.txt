@@ -1,0 +1,8 @@
+$cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+-Subject "CN=NameofyourRootCert" -KeyExportPolicy Exportable `
+-HashAlgorithm sha256 -KeyLength 2048 `
+-CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+
+
+$certname = "{certificateName}"    ## Replace {certificateName}
+$cert = New-SelfSignedCertificate -Subject "CN=$certname" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256

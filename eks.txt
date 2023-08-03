@@ -1,0 +1,6 @@
+kubectl set image deployment/server-demo back-end=995153328861.dkr.ecr.us-east-1.amazonaws.com/webapp:latest --record
+
+kubectl rollout restart deployment/server-demo
+
+
+kubectl edit deployment server-demo --record

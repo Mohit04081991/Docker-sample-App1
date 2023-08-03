@@ -1,0 +1,13 @@
+It's basically a three (kind of four) step process.
+
+You need to create a Metric Filter from your logs. 
+This will allow you to create a metric whenever there is an "error" in your log (or whatever other condition you want). 
+The name of the metric would typically be something like "Errors" for this case, but there is a namespace that is fully yours. 
+In that spot you put something like "/my-organization/my-service" or whatever makes sense to you.
+
+
+Create a Metric Alarm. This alarm is where you will specify what conditions trigger the alarm. For example, if there is 1 error in any 2 minutes. This alarm will be pointed at the new metric you created in the previous step.
+
+Send the alarm to an SNS topic.
+
+Subscribe to the SNS topic with your email.

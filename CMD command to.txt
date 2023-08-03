@@ -1,0 +1,11 @@
+net use r: https://some.portal.org/documents [password] user:domainName\[username]
+ 
+
+
+
+
+net use r: https://some.portal.org/documents [password] user:domainName\[username]
+copy c:\SpeedTest.png z:\somefile.txt
+
+
+copy d:\SpeedTest.png Z:\04.A -Network Requests\New Team Members Internet Speed Test\Mohit Bharti\

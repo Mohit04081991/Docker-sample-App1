@@ -1,0 +1,24 @@
+kubectl edit deployment server-demo --record
+
+kubectl get pods
+
+
+kubectl set image deployment/my-nginx nginx=nginx:1.7.10
+
+
+kubectl rollout restart deployment/my-nginx
+
+
+eksctl create nodegroup \
+  --cluster my-cluster \
+  --region region-code \
+  --name my-mng \
+  --node-ami-family ami-family \
+  --node-type t2.micro \
+  --nodes 1 \
+  --nodes-min 1 \
+  --nodes-max 1 \
+  --ssh-access \
+  --ssh-public-key my-key
+
+
